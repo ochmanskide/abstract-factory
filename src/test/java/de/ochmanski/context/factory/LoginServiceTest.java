@@ -26,7 +26,7 @@ class LoginServiceTest {
     @Test
     void echo() {
         String actual = unitUnderTest.echo();
-        assertThat(actual).isEqualTo("I am a login service");
+        assertThat(actual).isEqualTo("I am a login service.");
     }
 
     @Test

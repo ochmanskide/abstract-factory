@@ -23,7 +23,7 @@ public class LoginService {
     AnotherService anotherService;
 
     public String echo() {
-        return "I am some service";
+        return "I am a login service";
     }
 
     public String echoSomeService() {

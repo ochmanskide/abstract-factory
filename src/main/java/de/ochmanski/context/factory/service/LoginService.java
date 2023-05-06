@@ -24,18 +24,12 @@ public class LoginService {
     @Inject
     AnotherService anotherService;
 
-    @NotNull
-    @Contract(value = "-> !null", pure = true)
-    public static LoginService inject() {
-        return Context.INSTANCE.getLoginService();
-    }
-
     //<editor-fold defaultstate="collapsed" desc="Dependency Injection">
     @Getter(value = AccessLevel.PRIVATE)
     @RequiredArgsConstructor(access = AccessLevel.PRIVATE,
             onConstructor_ = {@NotNull, @Contract(value = "-> new", pure = true)})
     @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-    private enum Context {
+    private enum Singleton {
         INSTANCE;
 
         @NonNull
@@ -49,6 +43,12 @@ public class LoginService {
         @NonNull
         @NotNull
         LoginService loginService = new LoginService(someService, anotherService);
+    }
+
+    @NotNull
+    @Contract(value = "-> !null", pure = true)
+    public static LoginService inject() {
+        return Singleton.INSTANCE.getLoginService();
     }
     //</editor-fold>
 

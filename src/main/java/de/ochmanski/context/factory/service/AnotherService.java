@@ -16,23 +16,23 @@ import javax.inject.Singleton;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class AnotherService {
 
-    @NotNull
-    @Contract(value = "-> !null", pure = true)
-    public static AnotherService inject() {
-        return AnotherService.Context.INSTANCE.getAnotherService();
-    }
-
     //<editor-fold defaultstate="collapsed" desc="Dependency Injection">
     @Getter(value = AccessLevel.PRIVATE)
     @RequiredArgsConstructor(access = AccessLevel.PRIVATE,
             onConstructor_ = {@NotNull, @Contract(value = "-> new", pure = true)})
     @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-    private enum Context {
+    private enum Singleton {
         INSTANCE;
 
         @NonNull
         @NotNull
         AnotherService anotherService = new AnotherService();
+    }
+
+    @NotNull
+    @Contract(value = "-> !null", pure = true)
+    public static AnotherService inject() {
+        return Singleton.INSTANCE.getAnotherService();
     }
     //</editor-fold>
 

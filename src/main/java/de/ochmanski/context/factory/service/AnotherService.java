@@ -12,6 +12,6 @@ import javax.inject.Singleton;
 public class AnotherService {
 
     public String echo() {
-        return "I am another service";
+        return "I am another service.";
     }
 }

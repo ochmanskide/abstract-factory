@@ -21,18 +21,18 @@ class LoginServiceIT {
     @Test
     void echo() {
         String actual = unitUnderTest.echo();
-        assertThat(actual).isEqualTo("I am a login service");
+        assertThat(actual).isEqualTo("I am a login service.");
     }
 
     @Test
     void echoSomeService() {
         String actual = unitUnderTest.echoSomeService();
-        assertThat(actual).isEqualTo("I am some service");
+        assertThat(actual).isEqualTo("I am some service.");
     }
 
     @Test
     void echoAnotherService() {
         String actual = unitUnderTest.echoAnotherService();
-        assertThat(actual).isEqualTo("I am another service");
+        assertThat(actual).isEqualTo("I am another service.");
     }
 }

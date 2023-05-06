@@ -1,9 +1,7 @@
-package de.ochmanski.context.factory;
+package de.ochmanski.context.factory.service;
 
-import de.ochmanski.context.factory.service.AnotherService;
-import de.ochmanski.context.factory.service.SomeService;
+import de.ochmanski.context.factory.Context;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
@@ -13,7 +11,6 @@ import javax.inject.Singleton;
 @Singleton
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-@Builder(toBuilder = true)
 public class LoginService {
 
     @Inject
@@ -21,6 +18,10 @@ public class LoginService {
 
     @Inject
     AnotherService anotherService;
+
+    public static LoginService getInstance() {
+        return Context.getLoginServiceInstance();
+    }
 
     public String echo() {
         return "I am a login service.";

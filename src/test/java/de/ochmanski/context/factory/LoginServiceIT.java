@@ -1,22 +1,16 @@
 package de.ochmanski.context.factory;
 
-import de.ochmanski.context.factory.service.AnotherService;
-import de.ochmanski.context.factory.service.SomeService;
+import de.ochmanski.context.factory.service.LoginService;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 
 import javax.inject.Inject;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.when;
 
 class LoginServiceIT {
 
     @Inject
-    LoginService unitUnderTest = Context.getLoginServiceInstance();
+    LoginService unitUnderTest = LoginService.getInstance();
 
     @Test
     void echo() {

@@ -1,6 +1,7 @@
 package de.ochmanski.context.factory;
 
 import de.ochmanski.context.factory.service.AnotherService;
+import de.ochmanski.context.factory.service.LoginService;
 import de.ochmanski.context.factory.service.SomeService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

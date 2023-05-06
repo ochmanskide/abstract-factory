@@ -1,26 +1,17 @@
 plugins {
     id "io.freefair.lombok" version "6.6.1"
     id 'java'
-    id 'io.quarkus'
     id 'idea'
     id 'eclipse'
 }
 
-group 'com.stadlerrail.diag.dias'
+group 'de.ochmanski.abstract.factory'
 
 dependencies {
     implementation(
-            enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"),
             'javax.validation:validation-api:2.0.1.Final',
-            'org.jetbrains:annotations:24.0.1',
-            'io.quarkus:quarkus-arc',
-            'io.quarkus:quarkus-grpc',
-            'io.quarkus:quarkus-smallrye-health',
-            'io.quarkus:quarkus-resteasy-reactive-qute',
-            'com.stadlerrail.diag.libs:diag-grpc-lib:2.0.0',
-            'com.stadlerrail.diag.libs:diag-uic50405-lib:4.2.0'
+            'org.jetbrains:annotations:24.0.1'
     )
-    quarkusDev 'io.quarkus:quarkus-vertx-http'
     testImplementation(
             'io.quarkus:quarkus-junit5-mockito',
             'org.mockito:mockito-core:5.2.0',
@@ -29,22 +20,3 @@ dependencies {
     )
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-}
-
-test {
-    systemProperty "java.util.logging.manager", "org.jboss.logmanager.LogManager"
-}
-
-compileJava {
-    options.encoding = 'UTF-8'
-    options.compilerArgs << '-parameters'
-}
-
-if (project.hasProperty('projVersion')) {
-    project.version = project.projVersion
-} else {
-    project.version = 'local-SNAPSHOT'
-}

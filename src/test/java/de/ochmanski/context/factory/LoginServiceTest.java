@@ -9,6 +9,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class LoginServiceTest {
@@ -30,13 +31,15 @@ class LoginServiceTest {
 
     @Test
     void echoSomeService() {
+        when(someService.echo()).thenReturn("message from some mock");
         String actual = unitUnderTest.echoSomeService();
-        assertThat(actual).isEqualTo("I am some service");
+        assertThat(actual).isEqualTo("message from some mock");
     }
 
     @Test
     void echoAnotherService() {
+        when(anotherService.echo()).thenReturn("message from another mock");
         String actual = unitUnderTest.echoAnotherService();
-        assertThat(actual).isEqualTo("I am another service");
+        assertThat(actual).isEqualTo("message from another mock");
     }
 }

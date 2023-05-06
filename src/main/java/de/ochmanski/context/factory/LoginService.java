@@ -17,7 +17,7 @@ import javax.inject.Singleton;
 public class LoginService {
 
     @Inject
-    final SomeService someService;
+    SomeService someService;
 
     @Inject
     AnotherService anotherService;

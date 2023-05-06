@@ -32,15 +32,17 @@ class LoginServiceTest {
 
     @Test
     void echoSomeService() {
-        when(someService.echo()).thenReturn("message from some mock");
+        String expected = "Message from some mock.";
+        when(someService.echo()).thenReturn(expected);
         String actual = unitUnderTest.echoSomeService();
-        assertThat(actual).isEqualTo("message from some mock");
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test
     void echoAnotherService() {
-        when(anotherService.echo()).thenReturn("message from another mock");
+        String expected = "Message from another mock.";
+        when(anotherService.echo()).thenReturn(expected);
         String actual = unitUnderTest.echoAnotherService();
-        assertThat(actual).isEqualTo("message from another mock");
+        assertThat(actual).isEqualTo(expected);
     }
 }

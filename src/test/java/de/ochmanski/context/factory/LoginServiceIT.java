@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class LoginServiceIT {
 
     @Inject
-    LoginService unitUnderTest = LoginService.getInstance();
+    LoginService unitUnderTest = LoginService.inject();
 
     @Test
     void echo() {

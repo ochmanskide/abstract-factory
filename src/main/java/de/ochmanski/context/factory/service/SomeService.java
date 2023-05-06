@@ -12,13 +12,20 @@ import javax.inject.Singleton;
 
 @Singleton
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE,
-        onConstructor_= {@NotNull, @Contract(value = "-> new", pure = true)})
+        onConstructor_ = {@NotNull, @Contract(value = "-> new", pure = true)})
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class SomeService {
 
+    @NotNull
+    @Contract(value = "-> !null", pure = true)
+    public static SomeService inject() {
+        return SomeService.Context.INSTANCE.getSomeService();
+    }
+
+    //<editor-fold defaultstate="collapsed" desc="Dependency Injection">
     @Getter(value = AccessLevel.PRIVATE)
     @RequiredArgsConstructor(access = AccessLevel.PRIVATE,
-            onConstructor_= {@NotNull, @Contract(value = "-> new", pure = true)})
+            onConstructor_ = {@NotNull, @Contract(value = "-> new", pure = true)})
     @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
     private enum Context {
         INSTANCE;
@@ -27,12 +34,7 @@ public class SomeService {
         @NotNull
         SomeService someService = new SomeService();
     }
-
-    @NotNull
-    @Contract(value = "-> !null", pure = true)
-    public static SomeService getInstance() {
-        return SomeService.Context.INSTANCE.getSomeService();
-    }
+    //</editor-fold>
 
     public String echo() {
         return "I am some service.";

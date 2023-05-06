@@ -36,6 +36,7 @@ public class AnotherService {
     }
     //</editor-fold>
 
+    @NotNull
     public String echo() {
         return "I am another service.";
     }

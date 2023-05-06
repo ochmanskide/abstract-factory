@@ -18,9 +18,13 @@ import javax.inject.Singleton;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class LoginService {
 
+    @NonNull
+    @NotNull
     @Inject
     SomeService someService;
 
+    @NonNull
+    @NotNull
     @Inject
     AnotherService anotherService;
 
@@ -52,14 +56,17 @@ public class LoginService {
     }
     //</editor-fold>
 
+    @NotNull
     public String echo() {
         return "I am a login service.";
     }
 
+    @NotNull
     public String echoSomeService() {
         return someService.echo();
     }
 
+    @NotNull
     public String echoAnotherService() {
         return anotherService.echo();
     }

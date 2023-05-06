@@ -36,6 +36,7 @@ public class SomeService {
     }
     //</editor-fold>
 
+    @NotNull
     public String echo() {
         return "I am some service.";
     }

@@ -8,7 +8,7 @@ public class Example3
   {
   }
 
-  public static Example3 getInstance()
+  public synchronized static Example3 getInstance()
   {
     if(instance == null)
     {
